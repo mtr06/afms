@@ -15,6 +15,7 @@ export default function ServoLEDMonitor() {
   const [isActiveServo, setIsActiveServo] = useState(false);
   const [isActiveLED, setIsActiveLED] = useState(false);
   const [targetHumidity, setTargetHumidity] = useState();
+  const [isLoading, setIsLoading] = useState(true);
 
   const router = useRouter();
 
@@ -59,6 +60,7 @@ export default function ServoLEDMonitor() {
     // Check if the client is already connected
     if (client.isConnected()) {
       console.log("Already connected!");
+      setIsLoading(false);
       return;
     }
     client.connect({
@@ -69,6 +71,7 @@ export default function ServoLEDMonitor() {
         client.subscribe("hafidzganteng/irrigation");
         client.subscribe("hafidzganteng/detectpest");
         client.onMessageArrived = onMessage;
+        setIsLoading(false);
       },
       onFailure: () => {
         console.log("Failed to connect!");
@@ -78,23 +81,29 @@ export default function ServoLEDMonitor() {
 
   return (
     <>
-      <Navbar />
-      <div className="mt-24 mb-8 flex flex-col justify-center items-center">
-        <div
-          className={`text-2xl md:text-4xl mb-4 md:mb-6 text-[#274C5B] font-bold`}
-        >
-          Hardware Monitoring
-        </div>
-        <div className="grid grid-cols-2 space-x-2 md:space-x-8">
-          <CardComponents
-            isActive={isActiveServo}
-            type="servo"
-            targetHumidity={targetHumidity}
-          />
-          <CardComponents isActive={isActiveLED} type="leduv" />
-        </div>
-      </div>
-      <Footer />
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+          <Navbar />
+          <div className="mt-24 mb-8 flex flex-col justify-center items-center">
+            <div
+              className={`text-2xl md:text-4xl mb-4 md:mb-6 text-[#274C5B] font-bold`}
+            >
+              Hardware Monitoring
+            </div>
+            <div className="grid grid-cols-2 space-x-2 md:space-x-8">
+              <CardComponents
+                isActive={isActiveServo}
+                type="servo"
+                targetHumidity={targetHumidity}
+              />
+              <CardComponents isActive={isActiveLED} type="leduv" />
+            </div>
+          </div>
+          <Footer />
+        </>
+      )}
     </>
   );
 }

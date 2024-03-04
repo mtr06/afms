@@ -405,98 +405,104 @@ export default function WeatherPrediction() {
 
   return (
     <>
-      <Navbar />
-      <div className="mt-28 mb-8 flex flex-col md:flex-row gap-2 justify-between mx-6 md:mx-20 md:my-24">
-        <div className="flex flex-col md:w-3/4 gap-6" data-aos="fade-up">
-          <div className="flex flex-col gap-2">
-            <div className="flex flex-row">
-              <Image
-                src="location-icon.svg"
-                width={20}
-                height={20}
-                alt="location"
-              />
-              <div className="text-[#4E4E4E] font-normal text-sm">
-                {areaData}
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-4 text-[#4E4E4E] ">
-              <div className="text-xl font-medium">{weatherFix}</div>
-              <div className="flex flex-col">
-                <div className="text-[40px] font-semibold">
-                  {currentTempValue}°C
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+          <Navbar />
+          <div className="mt-28 mb-8 flex flex-col md:flex-row gap-2 justify-between mx-6 md:mx-20 md:my-24">
+            <div className="flex flex-col md:w-3/4 gap-6" data-aos="fade-up">
+              <div className="flex flex-col gap-2">
+                <div className="flex flex-row">
+                  <Image
+                    src="location-icon.svg"
+                    width={20}
+                    height={20}
+                    alt="location"
+                  />
+                  <div className="text-[#4E4E4E] font-normal text-sm">
+                    {areaData}
+                  </div>
                 </div>
-                <div className="text-xs">{formattedDate}</div>
-              </div>
-            </div>
-          </div>
 
-          <div className="relative flex flex-col w-full">
-            <div className="rounded-t-3xl mb-0 px-4 py-4 bg-[#4E4E4E]">
-              <div className="flex flex-wrap items-center">
-                <div className="relative w-full max-w-full flex-grow flex-1">
-                  <div className="flex gap-2 items-center">
-                    <Image
-                      src="/clock.svg"
-                      width={20}
-                      height={20}
-                      alt="clock"
-                    />
-                    <h6 className="text-xs font-semibold text-white">
-                      24-hour forecast
-                    </h6>
+                <div className="flex flex-col gap-4 text-[#4E4E4E] ">
+                  <div className="text-xl font-medium">{weatherFix}</div>
+                  <div className="flex flex-col">
+                    <div className="text-[40px] font-semibold">
+                      {currentTempValue}°C
+                    </div>
+                    <div className="text-xs">{formattedDate}</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative flex flex-col w-full">
+                <div className="rounded-t-3xl mb-0 px-4 py-4 bg-[#4E4E4E]">
+                  <div className="flex flex-wrap items-center">
+                    <div className="relative w-full max-w-full flex-grow flex-1">
+                      <div className="flex gap-2 items-center">
+                        <Image
+                          src="/clock.svg"
+                          width={20}
+                          height={20}
+                          alt="clock"
+                        />
+                        <h6 className="text-xs font-semibold text-white">
+                          24-hour forecast
+                        </h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex justify-center items-center bg-[#4E4E4E] rounded-b-3xl h-60 ">
+                  <div className="w-full">
+                    <canvas id="weather"></canvas>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="flex justify-center items-center bg-[#4E4E4E] rounded-b-3xl h-60 ">
-              <div className="w-full">
-                <canvas id="weather"></canvas>
+            <div
+              className="my-6 md:my-0 md:w-1/4 flex flex-row-reverse md:flex-col items-center justify-center md:justify-end gap-4"
+              data-aos="fade-up"
+            >
+              <div className="flex items-start ">
+                {weatherIcon(currentWeatherValue, { size: 135 })}
+              </div>
+              <div className="md:h-2/3 md:w-5/6 bg-[#4E4E4E] rounded-3xl relative">
+                <div className="absolute inset-0 flex items-end">
+                  <Image
+                    src="/dashboard-vector.png"
+                    width={250}
+                    height={300}
+                    className=""
+                  />
+                </div>
+                <div className="absolute inset-0 flex flex-col p-6 justify-start text-white text-sm gap-4">
+                  <div className="text-center my-2">
+                    <p className="font-bold text-lg">Weather Dashboard</p>
+                  </div>
+
+                  <div className="">
+                    <p className="font-semibold">Current Weather</p>
+                    <p className="font-light">{weatherFix}</p>
+                  </div>
+
+                  <div>
+                    <p className="font-semibold">Temperature</p>
+                    <p className="font-light">{currentTempValue}</p>
+                  </div>
+
+                  <div>
+                    <p className="font-semibold">Humidity</p>
+                    <p className="font-light">{currentHumidityValue}</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div
-          className="my-6 md:my-0 md:w-1/4 flex flex-row-reverse md:flex-col items-center justify-center md:justify-end gap-4"
-          // data-aos="fade-up"
-        >
-          <div className="flex items-start ">
-            {weatherIcon(currentWeatherValue, { size: 135 })}
-          </div>
-          <div className="md:h-2/3 md:w-5/6 bg-[#4E4E4E] rounded-3xl relative">
-            <div className="absolute inset-0 flex items-end">
-              <Image
-                src="/dashboard-vector.png"
-                width={250}
-                height={300}
-                className=""
-              />
-            </div>
-            <div className="absolute inset-0 flex flex-col p-6 justify-start text-white text-sm gap-4">
-              <div className="text-center my-2">
-                <p className="font-bold text-lg">Weather Dashboard</p>
-              </div>
-
-              <div className="">
-                <p className="font-semibold">Current Weather</p>
-                <p className="font-light">{weatherFix}</p>
-              </div>
-
-              <div>
-                <p className="font-semibold">Temperature</p>
-                <p className="font-light">{currentTempValue}</p>
-              </div>
-
-              <div>
-                <p className="font-semibold">Humidity</p>
-                <p className="font-light">{currentHumidityValue}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <Footer />
+          <Footer />
+        </>
+      )}
     </>
   );
 }
