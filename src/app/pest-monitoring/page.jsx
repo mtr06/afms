@@ -21,20 +21,20 @@ export default function PestMonitoring() {
 
   const router = useRouter();
 
-  if (!Cookies.get("loggedmacaddress")) {
-    router.push("/");
-  }
-
   useEffect(() => {
-    const fetchImages = async () => {
-      const blobs = [];
-      for await (const blob of containerClient.listBlobsFlat()) {
-        blobs.push(blob.name);
-      }
-      setImages(blobs);
-    };
-    fetchImages();
-    setIsLoading(false);
+    if (!Cookies.get("loggedmacaddress")) {
+      router.push("/");
+    } else {
+      const fetchImages = async () => {
+        const blobs = [];
+        for await (const blob of containerClient.listBlobsFlat()) {
+          blobs.push(blob.name);
+        }
+        setImages(blobs);
+      };
+      fetchImages();
+      setIsLoading(false);
+    }
   }, []);
 
   const deleteImage = async (imageName) => {

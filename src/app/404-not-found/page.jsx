@@ -8,16 +8,16 @@ import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 
 export default function NotFound() {
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    setIsLoading(false);
-  }, []);
-
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(true);
 
-  if (!Cookies.get("loggedmacaddress")) {
-    router.push("/");
-  }
+  useEffect(() => {
+    if (!Cookies.get("loggedmacaddress")) {
+      router.push("/");
+    } else {
+      setIsLoading(false);
+    }
+  }, []);
 
   return (
     <>

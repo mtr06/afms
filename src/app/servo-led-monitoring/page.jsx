@@ -19,10 +19,6 @@ export default function ServoLEDMonitor() {
 
   const router = useRouter();
 
-  if (!Cookies.get("loggedmacaddress")) {
-    router.push("/");
-  }
-
   function map(value, inMin, inMax, outMin, outMax) {
     return ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
   }
@@ -56,28 +52,32 @@ export default function ServoLEDMonitor() {
   // Panggil toggleActivity saat komponen pertama kali dimuat
   useEffect(() => {
     //MQTT Over Websocket
-    const client = new Client("broker.hivemq.com", Number(8884), "ClientID");
-    // Check if the client is already connected
-    if (client.isConnected()) {
-      console.log("Already connected!");
-      setIsLoading(false);
-      return;
-    }
-    client.connect({
-      useSSL: true,
-      onSuccess: () => {
-        console.log("Connected!");
-        client.subscribe("hafidzganteng/servo");
-        client.subscribe("hafidzganteng/soilmoisture");
-        client.subscribe("hafidzganteng/irrigation");
-        client.subscribe("hafidzganteng/detectpest");
-        client.onMessageArrived = onMessage;
+    if (!Cookies.get("loggedmacaddress")) {
+      router.push("/");
+    } else {
+      const client = new Client("broker.hivemq.com", Number(8884), "ClientID");
+      // Check if the client is already connected
+      if (client.isConnected()) {
+        console.log("Already connected!");
         setIsLoading(false);
-      },
-      onFailure: () => {
-        console.log("Failed to connect!");
-      },
-    });
+        return;
+      }
+      client.connect({
+        useSSL: true,
+        onSuccess: () => {
+          console.log("Connected!");
+          client.subscribe("hafidzganteng/servo");
+          client.subscribe("hafidzganteng/soilmoisture");
+          client.subscribe("hafidzganteng/irrigation");
+          client.subscribe("hafidzganteng/detectpest");
+          client.onMessageArrived = onMessage;
+          setIsLoading(false);
+        },
+        onFailure: () => {
+          console.log("Failed to connect!");
+        },
+      });
+    }
   }, []);
 
   return (

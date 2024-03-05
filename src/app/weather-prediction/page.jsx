@@ -78,10 +78,6 @@ export default function WeatherPrediction() {
 
   const router = useRouter();
 
-  if (!Cookies.get("loggedmacaddress")) {
-    router.push("/");
-  }
-
   const [currentDateTime, setCurrentDateTime] = useState("");
   const slides = [
     "https://i.ibb.co/ncrXc2V/1.png",
@@ -91,8 +87,13 @@ export default function WeatherPrediction() {
   ];
 
   useEffect(() => {
-    if (weatherData.length > 0) {
-      setCurrentDateTime(formatDatetime(weatherData[0].datetime));
+    if (!Cookies.get("loggedmacaddress")) {
+      router.push("/");
+    } else {
+      if (weatherData.length > 0) {
+        setCurrentDateTime(formatDatetime(weatherData[0].datetime));
+      }
+      setIsLoading(false);
     }
   }, [weatherData]);
 

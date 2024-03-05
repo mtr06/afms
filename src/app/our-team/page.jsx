@@ -10,12 +10,12 @@ export default function OurTeam() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
 
-  if (!Cookies.get("loggedmacaddress")) {
-    router.push("/");
-  }
-
   useEffect(() => {
-    setIsLoading(false);
+    if (!Cookies.get("loggedmacaddress")) {
+      router.push("/");
+    } else {
+      setIsLoading(false);
+    }
   }, []);
 
   return (
