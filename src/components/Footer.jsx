@@ -153,10 +153,8 @@ export default function Footer() {
             </h2>
             <ul className="text-gray-500 dark:text-gray-400 font-medium">
               <li className="mb-4">
-                <a
-                  onClick={() => {
-                    handleRoute("/404-not-found");
-                  }}
+                <Link
+                  href="/404-not-found"
                   className={`block py-2 cursor-pointer ${
                     pathname === "/404-not-found"
                       ? "text-black font-bold"
@@ -164,7 +162,7 @@ export default function Footer() {
                   }`}
                 >
                   404 Not Found
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

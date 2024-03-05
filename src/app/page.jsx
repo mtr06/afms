@@ -2,8 +2,8 @@
 
 import { Sarabun } from "next/font/google";
 import { useState, useEffect } from "react";
-// import { useRouter } from "next/navigation";
-// import Cookies from "js-cookie";
+import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 
 const sarabun = Sarabun({ weight: "800", subsets: ["latin"] });
 
@@ -14,7 +14,7 @@ export default function Login() {
   const [isLoading, setIsLoading] = useState(true);
   const [alertMessage, setAlertMessage] = useState("");
 
-  // const router = useRouter();
+  const router = useRouter();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -22,8 +22,8 @@ export default function Login() {
       MacAddress1 == "84:8C:8D:DF:1D:F2" &&
       MacAddress2 == "D8:F3:BC:61:86:E9"
     ) {
-      // Cookies.set("loggedmacaddress", "true");
-      // router.push("/home");
+      Cookies.set("loggedmacaddress", "true");
+      router.push("/home");
     } else {
       setAlertMessage("401: Not Authenticated! Please Check Your Mac Address!");
       setAlert(true);
