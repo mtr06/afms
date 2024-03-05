@@ -56,11 +56,7 @@ export default function ServoLEDMonitor() {
   // Panggil toggleActivity saat komponen pertama kali dimuat
   useEffect(() => {
     //MQTT Over Websocket
-    const client = new Client(
-      "wss://broker.hivemq.com",
-      Number(8884),
-      "ClientID"
-    );
+    const client = new Client("broker.hivemq.com", Number(8884), "ClientID");
     // Check if the client is already connected
     if (client.isConnected()) {
       console.log("Already connected!");
@@ -68,6 +64,7 @@ export default function ServoLEDMonitor() {
       return;
     }
     client.connect({
+      useSSL: true,
       onSuccess: () => {
         console.log("Connected!");
         client.subscribe("hafidzganteng/servo");
