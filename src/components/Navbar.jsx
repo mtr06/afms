@@ -3,11 +3,12 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
+import Cookies from "js-cookie";
 
 function logoTitle() {
   return (
     <Link
-      href="/"
+      href={Cookies.get("loggedmacaddress") ? "/home" : "/"}
       className="flex items-center space-x-3 rtl:space-x-reverse lg:ml-16 ml-4"
     >
       <img src="/logo.png" className="h-8" alt="AFMS Logo" />
@@ -27,11 +28,10 @@ export default function Navbar() {
     setMenuOpen(!menuOpen);
   };
 
-  useEffect(() => {
-    const handleRoute = (dest) => {
-      router.push(`${dest}`);
-    };
-  }, []);
+  const handleLogout = () => {
+    Cookies.remove("loggedmacaddress");
+    router.push("/");
+  };
 
   return (
     <nav className="bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200 py-2">
@@ -133,7 +133,7 @@ export default function Navbar() {
               type="button"
               class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
-              Get started
+              Sign Out
             </button>
           </ul>
         </div>
