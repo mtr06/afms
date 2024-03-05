@@ -3,8 +3,8 @@
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import style from "../page.module.css";
-import Cookies from "js-cookie";
-import { useRouter } from "next/navigation";
+// import Cookies from "js-cookie";
+// import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 
 import { Yellowtail } from "next/font/google";
@@ -14,19 +14,19 @@ import Image from "next/image";
 const yellowtail = Yellowtail({ weight: "400", subsets: ["latin"] });
 
 export default function Home() {
-  const router = useRouter();
+  // const router = useRouter();
   const [alert, setAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (!Cookies.get("loggedmacaddress")) {
-      router.push("/");
-    } else {
-      setAlert(true);
-      setAlertMessage("Sign In Success!");
-      setIsLoading(false);
-    }
+    // if (!Cookies.get("loggedmacaddress")) {
+    //   router.push("/");
+    // } else {
+    //   setAlert(true);
+    //   setAlertMessage("Sign In Success!");
+    setIsLoading(false);
+    // }
   }, []);
 
   return (
