@@ -4,12 +4,20 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import style from "./page.module.css";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 
 export default function NotFound() {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     setIsLoading(false);
   }, []);
+
+  const router = useRouter();
+
+  if (!Cookies.get("loggedmacaddress")) {
+    router.push("/");
+  }
 
   return (
     <>

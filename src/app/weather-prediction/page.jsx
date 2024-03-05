@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-// import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import Image from "next/image";
@@ -75,7 +76,11 @@ export default function WeatherPrediction() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // const router = useRouter();
+  const router = useRouter();
+
+  if (!Cookies.get("loggedmacaddress")) {
+    router.push("/");
+  }
 
   const [currentDateTime, setCurrentDateTime] = useState("");
   const slides = [
