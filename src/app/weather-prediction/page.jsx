@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import Image from "next/image";
@@ -75,7 +75,7 @@ export default function WeatherPrediction() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const router = useRouter();
+  // const router = useRouter();
 
   const [currentDateTime, setCurrentDateTime] = useState("");
   const slides = [
@@ -192,7 +192,7 @@ export default function WeatherPrediction() {
       const second = now.getSeconds();
 
       if (hour % 6 == 0 && minute == 0 && second == 0) {
-        router.refresh();
+        // router.refresh();
       }
     }, 1000);
 

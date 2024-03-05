@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { Roboto } from "next/font/google";
 import CardComponents from "../../components/CardComponents";
 import { Client } from "paho-mqtt";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 
 const roboto = Roboto({ weight: "400", subsets: ["latin"] });
@@ -17,10 +17,10 @@ export default function ServoLEDMonitor() {
   const [targetHumidity, setTargetHumidity] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
-  const router = useRouter();
+  // const router = useRouter();
 
   if (!Cookies.get("loggedmacaddress")) {
-    router.push("/");
+    // router.push("/");
   }
 
   function map(value, inMin, inMax, outMin, outMax) {

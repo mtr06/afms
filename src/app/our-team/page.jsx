@@ -2,17 +2,17 @@
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import styles from "./page.module.css";
-import { useRouter } from "next/navigation";
-import Cookies from "js-cookie";
+// import { useRouter } from "next/navigation";
+// import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 
 export default function OurTeam() {
-  const router = useRouter();
+  // const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
 
-  if (!Cookies.get("loggedmacaddress")) {
-    router.push("/");
-  }
+  // if (!Cookies.get("loggedmacaddress")) {
+  //   router.push("/");
+  // }
 
   useEffect(() => {
     setIsLoading(false);
