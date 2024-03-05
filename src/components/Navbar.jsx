@@ -70,10 +70,8 @@ export default function Navbar() {
         >
           <ul className="flex flex-col pt-4 pl-4 text-[#274C5B] text-sm font-normal xl:p-0 xl:space-x-8 rtl:space-x-reverse xl:flex-row xl:mt-0 xl:border-0 xl:bg-white dark:border-gray-700">
             <li>
-              <a
-                onClick={() => {
-                  handleRoute("/weather-prediction");
-                }}
+              <Link
+                href="/weather-prediction"
                 className={`block py-2 cursor-pointer ${
                   pathname === "/weather-prediction"
                     ? "text-black font-semibold"
@@ -81,13 +79,11 @@ export default function Navbar() {
                 }`}
               >
                 Weather Prediction
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                onClick={() => {
-                  handleRoute("/soil-monitoring");
-                }}
+              <Link
+                href="/soil-monitoring"
                 className={`block py-2 cursor-pointer ${
                   pathname === "/soil-monitoring"
                     ? "text-black font-semibold"
@@ -95,13 +91,11 @@ export default function Navbar() {
                 }`}
               >
                 Soil Moisture Monitoring
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                onClick={() => {
-                  handleRoute("/pest-monitoring");
-                }}
+              <Link
+                href="/pest-monitoring"
                 className={`block py-2 cursor-pointer ${
                   pathname === "/pest-monitoring"
                     ? "text-black font-semibold"
@@ -109,13 +103,11 @@ export default function Navbar() {
                 }`}
               >
                 Pest Monitoring
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                onClick={() => {
-                  handleRoute("/servo-led-monitoring");
-                }}
+              <Link
+                href="/servo-led-monitoring"
                 className={`block py-2 cursor-pointer ${
                   pathname === "/servo-led-monitoring"
                     ? "text-black font-semibold"
@@ -123,15 +115,11 @@ export default function Navbar() {
                 }`}
               >
                 Servo and LED UV Monitoring
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                onClick={(e) => {
-                  {
-                    handleRoute("/our-team");
-                  }
-                }}
+              <Link
+                href="/our-team"
                 className={`block py-2 cursor-pointer ${
                   pathname === "/our-team"
                     ? "text-black font-semibold"
@@ -139,7 +127,7 @@ export default function Navbar() {
                 }`}
               >
                 Our Team
-              </a>
+              </Link>
             </li>
             <button
               type="button"
