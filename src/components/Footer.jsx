@@ -1,9 +1,17 @@
 "use client";
 import { useRouter, usePathname } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Footer() {
   const router = useRouter();
   const pathname = usePathname();
+
+  useEffect(() => {
+    const handleRoute = (dest) => {
+      router.push(`${dest}`);
+    };
+  }, []);
+
   return (
     <footer className="bg-white dark:bg-gray-900" data-aos="fade-up">
       <div className="mx-auto w-full max-w-screen-xl">
@@ -147,7 +155,7 @@ export default function Footer() {
               <li className="mb-4">
                 <a
                   onClick={() => {
-                    router.push("/404-not-found");
+                    handleRoute("/404-not-found");
                   }}
                   className={`block py-2 cursor-pointer ${
                     pathname === "/404-not-found"

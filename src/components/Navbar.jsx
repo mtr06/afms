@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 
@@ -26,6 +26,12 @@ export default function Navbar() {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  useEffect(() => {
+    const handleRoute = (dest) => {
+      router.push(`${dest}`);
+    };
+  }, []);
 
   return (
     <nav className="bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200 py-2">
@@ -66,7 +72,7 @@ export default function Navbar() {
             <li>
               <a
                 onClick={() => {
-                  router.push("/weather-prediction");
+                  handleRoute("/weather-prediction");
                 }}
                 className={`block py-2 cursor-pointer ${
                   pathname === "/weather-prediction"
@@ -80,7 +86,7 @@ export default function Navbar() {
             <li>
               <a
                 onClick={() => {
-                  router.push("/soil-monitoring");
+                  handleRoute("/soil-monitoring");
                 }}
                 className={`block py-2 cursor-pointer ${
                   pathname === "/soil-monitoring"
@@ -94,7 +100,7 @@ export default function Navbar() {
             <li>
               <a
                 onClick={() => {
-                  router.push("/pest-monitoring");
+                  handleRoute("/pest-monitoring");
                 }}
                 className={`block py-2 cursor-pointer ${
                   pathname === "/pest-monitoring"
@@ -108,7 +114,7 @@ export default function Navbar() {
             <li>
               <a
                 onClick={() => {
-                  router.push("/servo-led-monitoring");
+                  handleRoute("/servo-led-monitoring");
                 }}
                 className={`block py-2 cursor-pointer ${
                   pathname === "/servo-led-monitoring"
@@ -123,7 +129,7 @@ export default function Navbar() {
               <a
                 onClick={(e) => {
                   {
-                    router.push("/our-team");
+                    handleRoute("/our-team");
                   }
                 }}
                 className={`block py-2 cursor-pointer ${
