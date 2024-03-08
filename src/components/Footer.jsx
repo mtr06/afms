@@ -42,7 +42,7 @@ export default function Footer() {
             </ul>
           </div>
           <div className="justify-self-end md:justify-self-center text-end md:text-center px-4 md:px-0 border-r-2 md:border-r-0">
-            <h2 className="mb-3 text-md md:mb-6 md:text-xl font-bold text-[#274C5B] uppercase dark:text-white">
+            <h2 className="mb-3 text-xl md:mb-6 font-bold text-[#274C5B] uppercase dark:text-white">
               AFMS
             </h2>
             <ul className="text-gray-500 dark:text-gray-400 font-medium">
@@ -151,7 +151,7 @@ export default function Footer() {
             </ul>
           </div>
           <div className="border-l-2 px-4 md:px-8">
-            <h2 className="mb-3 text-md md:mb-6 md:text-xl font-bold text-[#274C5B] dark:text-white">
+            <h2 className="mb-3 text-xl md:mb-6 font-bold text-[#274C5B] dark:text-white">
               Utility Pages
             </h2>
             <ul className="text-gray-500 dark:text-gray-400 font-medium">
