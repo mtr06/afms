@@ -40,11 +40,11 @@ export default function Login() {
         <p>Loading...</p>
       ) : (
         <>
-          <div className=" flex md:flex-row flex-col pt-14 bg-[#E6FFEE] md:min-h-svh md:space-x-28 md:justify-center items-center md:items-start md:gap-8 ">
+          <div className="flex md:flex-row pt-14 flex-col bg-[#E6FFEE] min-h-svh md:space-x-28 md:justify-center md:items-start">
             <div
-              className={`${sarabun.className} flex flex-col md:text-[35px] text-[25px] w-[30rem] md:items-start items-center`}
+              className={`${sarabun.className} md:text-[35px] text-[25px] md:w-[30rem] md:items-start`}
             >
-              <div className="mb-2 md:w-full w-full md:text-wrap text-[24px] md:text-[32px] md:text-start text-center">
+              <div className="mb-2 md:text-wrap text-[24px] md:text-[32px] md:text-start text-center">
                 <h1>Welcome to</h1>
                 <h1>Automated Farming Management System</h1>
               </div>
@@ -52,12 +52,14 @@ export default function Login() {
               <img
                 src="/farminglogin.png"
                 alt="Gambar Smart Farming"
-                className="md:w-[30rem] w-full"
+                className="md:w-[30rem] w-full mt-4"
               />
             </div>
 
-            <form className="flex-row md:w-[22rem] w-[30rem] md:mt-20 mt-8 mb-10">
-              <div className="font-bold text-xl mb-5">Sign In</div>
+            <form className="flex-row md:w-[22rem] md:w-[30rem] md:mt-20 mt-8 mb-10 px-4 md:px-0">
+              <div className="font-bold text-2xl md:text-4xl mb-5 text-center md:text-start">
+                Sign In
+              </div>
               <div className="mb-5">
                 <input
                   type="text"
@@ -84,7 +86,7 @@ export default function Login() {
                 <button
                   type="submit"
                   onClick={(e) => handleLogin(e)}
-                  className="text-white bg-[#274C5B] hover:bg-white hover:text-black hover:border-[#274C5B] hover:border-2 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-6 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className="text-white bg-[#274C5B] hover:bg-white hover:text-black hover:border-[#274C5B] hover:border-2 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full md:w-full sm:w-auto px-6 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
                   Sign In
                 </button>

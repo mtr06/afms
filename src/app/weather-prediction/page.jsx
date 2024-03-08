@@ -483,7 +483,7 @@ export default function WeatherPrediction() {
                     className=""
                   />
                 </div>
-                <div className="absolute inset-0 flex flex-col p-6 justify-start text-white text-sm gap-4">
+                <div className="relative md:absolute inset-0 flex flex-col p-6 justify-start text-white text-sm gap-4">
                   <div className="text-center my-2">
                     <p className="font-bold text-lg">Weather Dashboard</p>
                   </div>

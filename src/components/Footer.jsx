@@ -148,7 +148,7 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div className="border-l-2 md:border-l-0 px-4 md:px-8">
+          <div className="border-l-2 px-4 md:px-8">
             <h2 className="mb-3 text-md md:mb-6 md:text-xl font-bold text-[#274C5B] dark:text-white">
               Utility Pages
             </h2>

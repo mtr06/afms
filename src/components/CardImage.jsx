@@ -25,22 +25,19 @@ export default function CardImage({ containerName, imageName, handleDelete }) {
 
   return (
     <div class="w-[11.4rem] h-[20.5rem] md:w-[19rem] md:h-[28rem] bg-[#E5E5E5] border border-gray-200 rounded-xl shadow dark:bg-gray-800 dark:border-gray-700">
-      <a href="#">
-        <img
-          class="rounded-t-lg w-[11.4rem] md:w-[19rem] h-[10.2rem] md:h-[16rem]"
-          src={`https://afmsprototech.blob.core.windows.net/${containerName}/${imageName}`}
-          alt="Pest"
-        />
-      </a>
+      <img
+        class="rounded-t-lg w-[11.4rem] md:w-[19rem] h-[10.2rem] md:h-[16rem]"
+        src={`https://afmsprototech.blob.core.windows.net/${containerName}/${imageName}`}
+        alt="Pest"
+      />
+
       <div class="p-5">
-        <a href="#">
-          <h5 class="mb-2 text-sm md:text-xl font-bold tracking-tight text-[#274C5B] dark:text-white">
-            Date : {formatDate(imageName)}
-          </h5>
-          <h5 class="mb-2 md:mb-3 text-sm md:text-xl font-bold tracking-tight text-[#274C5B] dark:text-white">
-            Time : {formatTime(imageName)}
-          </h5>
-        </a>
+        <h5 class="mb-2 text-sm md:text-xl font-bold tracking-tight text-[#274C5B] dark:text-white">
+          Date : {formatDate(imageName)}
+        </h5>
+        <h5 class="mb-2 md:mb-3 text-sm md:text-xl font-bold tracking-tight text-[#274C5B] dark:text-white">
+          Time : {formatTime(imageName)}
+        </h5>
         <p
           className={`${
             robotoMono.className
@@ -52,7 +49,7 @@ export default function CardImage({ containerName, imageName, handleDelete }) {
         </p>
         <div className="flex space-x-2 md:space-x-4 justify-center">
           <a
-            href="href={`https://tpkiot.blob.core.windows.net/${containerName}/${image}`}"
+            href={`https://afmsprototech.blob.core.windows.net/${containerName}/${imageName}`}
             class="inline-flex shadow items-center px-4 md:px-7 py-2 text-sm font-medium text-center text-white bg-[#274C5B] rounded-lg hover:bg-black"
           >
             Save
