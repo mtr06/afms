@@ -26,18 +26,18 @@ export default function Footer() {
                 <b>Email</b>
                 <br />
                 <div className="text-ellipsis overflow-hidden ...">
-                  yoanesbandung@gmail.com
+                  afms@iot.io
                 </div>
               </li>
               <li className="mb-4">
                 <b>Phone</b>
                 <br />
-                6969696969
+                (+62)856-9131-0244
               </li>
               <li>
                 <b>Address</b>
                 <br />
-                Bojong Koneng
+                Dago, Bandung
               </li>
             </ul>
           </div>
@@ -46,16 +46,18 @@ export default function Footer() {
               AFMS
             </h2>
             <ul className="text-gray-500 dark:text-gray-400 font-medium">
-              <li className="mb-4">
-                <a href="#" className="hover:underline">
-                  Lorem Ipsum
-                </a>
+              <li className="mb-4 hover:underline text-justify">
+                Revolutionize agriculture with our cutting-edge Automated
+                Farming Management System, seamlessly integrating smart sensors
+                and Machine learning analytics to empower farmers with
+                unprecedented efficiency, yield optimization, and sustainable
+                farming practices.
               </li>
               <li className="mb-4">
                 <div className="grid grid-cols-5 md:flex mt-2 gap-4 px-2 py-3 md:gap-8 md:px-4 md:py-6 md:mt-4 sm:justify-center md:mt-0 md:space-x-5 md:rtl:space-x-reverse">
                   <a
                     href="#"
-                    className="col-span-2 text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                    className="col-span-2 justify-self-center md: justify-self-start text-gray-400 hover:text-gray-900 dark:hover:text-white"
                   >
                     <svg
                       className="w-4 h-4"
@@ -74,7 +76,7 @@ export default function Footer() {
                   </a>
                   <a
                     href="#"
-                    className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                    className="text-gray-400 justify-self-end md: justify-self-start hover:text-gray-900 dark:hover:text-white"
                   >
                     <svg
                       className="w-4 h-4"
