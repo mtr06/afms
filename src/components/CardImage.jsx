@@ -33,11 +33,11 @@ export default function CardImage({ containerName, imageName, handleDelete }) {
 
       <div class="p-5">
         <h5 class="mb-2 text-sm md:text-xl font-bold tracking-tight text-[#274C5B] dark:text-white">
-          Date : {formatDate(imageName)}
+          Date : 09-03-2024
         </h5>
-        <h5 class="mb-2 md:mb-3 text-sm md:text-xl font-bold tracking-tight text-[#274C5B] dark:text-white">
+        {/* <h5 class="mb-2 md:mb-3 text-sm md:text-xl font-bold tracking-tight text-[#274C5B] dark:text-white">
           Time : {formatTime(imageName)}
-        </h5>
+        </h5> */}
         <p
           className={`${
             robotoMono.className
